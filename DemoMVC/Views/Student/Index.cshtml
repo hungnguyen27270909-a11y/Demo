@@ -1,20 +1,24 @@
-@model DemoMVC.Models.Student
+@model List<DemoMVC.Models.Student>
 
-<form method="post">
+<h2>Danh sách sinh viên</h2>
 
-    <div>
-        <label>Mã sinh viên</label>
-        <input asp-for="StudentCode" />
-    </div>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Mã sinh viên</th>
+            <th>Họ tên</th>
+        </tr>
+    </thead>
 
-    <div>
-        <label>Họ tên</label>
-        <input asp-for="FullName" />
-    </div>
-
-    <button type="submit">Gửi</button>
-
-</form>
-
-<h3>@ViewBag.Message</h3>
-
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.StudentCode</td>
+                <td>@item.FullName</td>
+            </tr>
+        }
+    </tbody>
+</table>
