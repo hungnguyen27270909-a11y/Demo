@@ -14,20 +14,20 @@ namespace DemoMVC.Controllers
             _context = context;
         }
 
-        // 🔹 Hiển thị danh sách
+        // 🔹 INDEX
         public IActionResult Index()
         {
             var students = _context.Students.ToList();
             return View(students);
         }
 
-        // 🔹 Hiển thị form Create
+        // 🔹 CREATE (GET)
         public IActionResult Create()
         {
             return View();
         }
 
-        // 🔹 Xử lý Create (VALIDATION BUỔI 7)
+        // 🔹 CREATE (POST)
         [HttpPost]
         public IActionResult Create(Student student)
         {
@@ -41,20 +41,20 @@ namespace DemoMVC.Controllers
             return View(student);
         }
 
-        // 🔹 Hiển thị form Edit
+        // 🔹 EDIT (GET)
         public IActionResult Edit(int id)
         {
-            var student = _context.Students.Find(id);
+            var student = _context.Students.FirstOrDefault(x => x.Id == id);
 
             if (student == null)
             {
-                return NotFound();
+                return View("NotFound");
             }
 
             return View(student);
         }
 
-        // 🔹 Xử lý Edit (VALIDATION BUỔI 7)
+        // 🔹 EDIT (POST)
         [HttpPost]
         public IActionResult Edit(Student student)
         {
@@ -68,34 +68,40 @@ namespace DemoMVC.Controllers
             return View(student);
         }
 
-        // 🔹 Hiển thị form Delete
+        // 🔹 DELETE (GET)
         public IActionResult Delete(int id)
         {
-            var student = _context.Students.Find(id);
+            var student = _context.Students.FirstOrDefault(x => x.Id == id);
 
             if (student == null)
             {
-                return NotFound();
+                return View("NotFound");
             }
 
             return View(student);
         }
 
-        // 🔹 Xác nhận Delete
+        // 🔹 DELETE (POST)
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
-            var student = _context.Students.Find(id);
+            var student = _context.Students.FirstOrDefault(x => x.Id == id);
 
             if (student == null)
             {
-                return NotFound();
+                return View("NotFound");
             }
 
             _context.Students.Remove(student);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        // 🔹 NOT FOUND PAGE
+        public IActionResult NotFound()
+        {
+            return View();
         }
     }
 }
