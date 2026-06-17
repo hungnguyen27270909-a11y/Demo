@@ -8,6 +8,8 @@
             <th>Id</th>
             <th>Mã sinh viên</th>
             <th>Họ tên</th>
+            <th>Thao tác</th>
+            
         </tr>
     </thead>
 
@@ -18,7 +20,14 @@
                 <td>@item.Id</td>
                 <td>@item.StudentCode</td>
                 <td>@item.FullName</td>
+                 <td>
+                    <a asp-action="Edit"
+                       asp-route-id="@item.Id">
+                        Sửa
+                    </a>
+                </td>
             </tr>
+
         }
     </tbody>
 </table>

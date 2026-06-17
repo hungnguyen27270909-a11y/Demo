@@ -38,5 +38,29 @@ namespace DemoMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // Hiển thị form sửa
+        public IActionResult Edit(int id)
+        {
+            var student = _context.Students.Find(id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        // Nhận dữ liệu từ form sửa và lưu vào DB
+        [HttpPost]
+        public IActionResult Edit(Student student)
+        {
+            _context.Students.Update(student);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
