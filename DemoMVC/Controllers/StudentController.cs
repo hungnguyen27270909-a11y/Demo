@@ -14,32 +14,34 @@ namespace DemoMVC.Controllers
             _context = context;
         }
 
-        // Hiển thị danh sách
+        // 🔹 Hiển thị danh sách
         public IActionResult Index()
         {
             var students = _context.Students.ToList();
-
             return View(students);
         }
 
-        // Hiển thị form thêm mới
+        // 🔹 Hiển thị form Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // Nhận dữ liệu từ form và lưu vào DB
+        // 🔹 Xử lý Create (VALIDATION BUỔI 7)
         [HttpPost]
         public IActionResult Create(Student student)
         {
-            _context.Students.Add(student);
+            if (ModelState.IsValid)
+            {
+                _context.Students.Add(student);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return View(student);
         }
 
-        // Hiển thị form sửa
+        // 🔹 Hiển thị form Edit
         public IActionResult Edit(int id)
         {
             var student = _context.Students.Find(id);
@@ -52,18 +54,21 @@ namespace DemoMVC.Controllers
             return View(student);
         }
 
-        // Nhận dữ liệu từ form sửa và lưu vào DB
+        // 🔹 Xử lý Edit (VALIDATION BUỔI 7)
         [HttpPost]
         public IActionResult Edit(Student student)
         {
-            _context.Students.Update(student);
+            if (ModelState.IsValid)
+            {
+                _context.Students.Update(student);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+            return View(student);
         }
 
-        // Hiển thị form xác nhận xoá
+        // 🔹 Hiển thị form Delete
         public IActionResult Delete(int id)
         {
             var student = _context.Students.Find(id);
@@ -76,7 +81,7 @@ namespace DemoMVC.Controllers
             return View(student);
         }
 
-        // Xác nhận xoá
+        // 🔹 Xác nhận Delete
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {
@@ -88,7 +93,6 @@ namespace DemoMVC.Controllers
             }
 
             _context.Students.Remove(student);
-
             _context.SaveChanges();
 
             return RedirectToAction("Index");

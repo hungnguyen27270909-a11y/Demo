@@ -1,12 +1,11 @@
 @model DemoMVC.Models.Student
 
-<h2>Thêm sinh viên</h2>
-
 <form asp-action="Create" method="post">
 
     <div>
         <label>Mã sinh viên</label>
         <input asp-for="StudentCode" />
+        <span asp-validation-for="StudentCode"></span>
     </div>
 
     <br />
@@ -14,6 +13,7 @@
     <div>
         <label>Họ tên</label>
         <input asp-for="FullName" />
+        <span asp-validation-for="FullName"></span>
     </div>
 
     <br />
@@ -23,3 +23,10 @@
     </button>
 
 </form>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
