@@ -62,5 +62,36 @@ namespace DemoMVC.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // Hiển thị form xác nhận xoá
+        public IActionResult Delete(int id)
+        {
+            var student = _context.Students.Find(id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        // Xác nhận xoá
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var student = _context.Students.Find(id);
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            _context.Students.Remove(student);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -9,7 +9,7 @@
             <th>Mã sinh viên</th>
             <th>Họ tên</th>
             <th>Thao tác</th>
-            
+
         </tr>
     </thead>
 
@@ -25,6 +25,7 @@
                        asp-route-id="@item.Id">
                         Sửa
                     </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
                 </td>
             </tr>
 
