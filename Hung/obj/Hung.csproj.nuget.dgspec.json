@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Demo\\Demo.csproj": {}
+    "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Hung\\Hung.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Demo\\Demo.csproj": {
+    "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Hung\\Hung.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Demo\\Demo.csproj",
-        "projectName": "Demo",
-        "projectPath": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Demo\\Demo.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Hung\\Hung.csproj",
+        "projectName": "Hung",
+        "projectPath": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Hung\\Hung.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Demo\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\OneDrive\\Tài liệu\\phattrienphanmemquanli\\Test\\Hung\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"

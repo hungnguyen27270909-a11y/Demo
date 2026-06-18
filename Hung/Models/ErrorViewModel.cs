@@ -1,4 +1,4 @@
-namespace Demo.Models;
+namespace Hung.Models;
 
 public class ErrorViewModel
 {
