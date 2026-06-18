@@ -1,4 +1,4 @@
-namespace Hung.Models;
+namespace BT.Models;
 
 public class ErrorViewModel
 {

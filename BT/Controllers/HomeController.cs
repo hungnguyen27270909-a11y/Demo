@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Hung.Models;
+using BT.Models;
 
-namespace Hung.Controllers;
+namespace BT.Controllers;
 
 public class HomeController : Controller
 {
